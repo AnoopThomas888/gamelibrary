@@ -1,0 +1,22 @@
+<html xmlns:th="http://www.thymeleaf.org">
+    
+    <head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class = "container">
+        <h2>Add Game</h2>
+        <hr/>
+        <form th:action = "@{/saveGame}" th:object="${game}" method="POST">
+            <input name="name" type = "text" placeholder="name">
+            <input description="description" type = "text" placeholder="description">
+            <input imageurl="imageurl" type = "text" placeholder="imageurl">
+            <input publisher="publisher" type = "text" placeholder="publisher">
+<button class="btn btn-primary" type="submit">save</button>
+<!-- <input type = "hidden" th:field="*{id}"/> -->
+        </form>
+        <hr/>
+        <a th:href="@{/publisher}">back to publishers</a>
+</div>
+    </body>
+</html>

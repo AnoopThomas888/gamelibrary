@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../static/css/site.css"th:href="@{/css/site.css}"rel = "stylesheet"/>
+    <title>Publisher Details</title>
+</head>
+<body>
+    <h1 th:text = "${publisher.getName()}">text</h1>
+    <a th:href="@{game/create/}">Create a boardgame</a>
+    <table>
+        <tr th:each="game: ${publisher.getGames()}">
+        <td th:text="${game.name}"></td>
+        <td th:text = "${game.getDescription()}"></td>
+        <td><a th:href="@{/boardgame/Deletegame/}+${game.getId()}">Delete</a></td>
+        <td><a th:href = "@{/boardgame/Editgame/} +${game.getId()}">Edit</a></td>
+    </tr>
+    </table>
+    <hr/>
+    <a th:href="@{/publisher}">back to publishers</a>
+</body>
+</html>
